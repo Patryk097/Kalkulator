@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kalkulator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">	
+</head>
+<body>
+	<div class="main">
+		<form name="calculatorForm">
+			<div class="screen">
+				<input class="column" type="text" id="wyswietlacz" readonly/>
+			</div>
+			<div class="row">
+				<input class="calc-btn calc-btn-num column" type="button" value="1" onclick="valueButton(this)"/>
+				<input class="calc-btn calc-btn-num column" type="button" value="2" onclick="valueButton(this)"/>
+				<input class="calc-btn calc-btn-num column" type="button" value="3" onclick="valueButton(this)"/>
+				<input class="calc-btn calc-btn-operator column" type="button" value="/" onclick="valueButton(this)"/>
+			</div>
+			<div class="row">
+				<input class="calc-btn calc-btn-num column" type="button" value="4" onclick="valueButton(this)"/>
+				<input class="calc-btn calc-btn-num column" type="button" value="5" onclick="valueButton(this)"/>
+				<input class="calc-btn calc-btn-num column" type="button" value="6" onclick="valueButton(this)"/>
+				<input class="calc-btn calc-btn-operator column" type="button" value="*"onclick="valueButton(this)"/>
+			</div>
+			<div class="row">
+				<input class="calc-btn calc-btn-num column" type="button" value="7" onclick="valueButton(this)"/>
+				<input class="calc-btn calc-btn-num column" type="button" value="8" onclick="valueButton(this)"/>
+				<input class="calc-btn calc-btn-num column" type="button" value="9" onclick="valueButton(this)"/>
+				<input class="calc-btn calc-btn-operator column" type="button" value="+" onclick="valueButton(this)"/>
+			</div>
+			<div class="row">
+				<input class="calc-btn calc-btn-num column" type="button" value="0" onclick="valueButton(this)"/>
+				<input class="calc-btn calc-btn-equal column" type="button" value="=" onclick="calculate()"/>
+				<input class="calc-btn calc-btn-operator column" type="button" value="-" onclick="valueButton(this)"/>
+			</div>
+
+			<script type="text/javascript">
+				wyswietlacz.value = '';
+				function valueButton(e){
+					wyswietlacz.value += e.value;
+					
+				}
+				function calculate(){
+					wyswietlacz.value = eval(wyswietlacz.value);
+					if(eval(wyswietlacz.value) === Infinity){
+						alert('Nie można dzielić przez 0')
+						wyswietlacz.value = '';
+					} else {
+						wyswietlacz.value = eval(wyswietlacz.value);
+					}
+				}
+
+			</script>
+</body>
+</html>
